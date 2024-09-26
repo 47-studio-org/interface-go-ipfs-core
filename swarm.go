@@ -5,19 +5,23 @@ import (
 	"errors"
 	"time"
 
-	"github.com/libp2p/go-libp2p-core/network"
-	"github.com/libp2p/go-libp2p-core/peer"
-	"github.com/libp2p/go-libp2p-core/protocol"
+	"github.com/libp2p/go-libp2p/core/network"
+	"github.com/libp2p/go-libp2p/core/peer"
+	"github.com/libp2p/go-libp2p/core/protocol"
 
 	ma "github.com/multiformats/go-multiaddr"
 )
 
 var (
+	// Deprecated: use github.com/ipfs/boxo/coreiface.ErrNotConnected
 	ErrNotConnected = errors.New("not connected")
+	// Deprecated: use github.com/ipfs/boxo/coreiface.ErrConnNotFound
 	ErrConnNotFound = errors.New("conn not found")
 )
 
 // ConnectionInfo contains information about a peer
+//
+// Deprecated: use github.com/ipfs/boxo/coreiface.ConnectionInfo
 type ConnectionInfo interface {
 	// ID returns PeerID
 	ID() peer.ID
@@ -36,6 +40,8 @@ type ConnectionInfo interface {
 }
 
 // SwarmAPI specifies the interface to libp2p swarm
+//
+// Deprecated: use github.com/ipfs/boxo/coreiface.SwarmAPI
 type SwarmAPI interface {
 	// Connect to a given peer
 	Connect(context.Context, peer.AddrInfo) error

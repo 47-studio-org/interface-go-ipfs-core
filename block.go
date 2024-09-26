@@ -2,13 +2,16 @@ package iface
 
 import (
 	"context"
-	path "github.com/ipfs/interface-go-ipfs-core/path"
 	"io"
+
+	path "github.com/ipfs/interface-go-ipfs-core/path"
 
 	"github.com/ipfs/interface-go-ipfs-core/options"
 )
 
 // BlockStat contains information about a block
+//
+// Deprecated: use github.com/ipfs/boxo/coreiface.BlockStat
 type BlockStat interface {
 	// Size is the size of a block
 	Size() int
@@ -18,6 +21,8 @@ type BlockStat interface {
 }
 
 // BlockAPI specifies the interface to the block layer
+//
+// Deprecated: use github.com/ipfs/boxo/coreiface.BlockAPI
 type BlockAPI interface {
 	// Put imports raw block data, hashing it using specified settings.
 	Put(context.Context, io.Reader, ...options.BlockPutOption) (BlockStat, error)

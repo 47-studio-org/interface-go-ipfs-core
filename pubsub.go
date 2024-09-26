@@ -4,12 +4,14 @@ import (
 	"context"
 	"io"
 
-	options "github.com/ipfs/interface-go-ipfs-core/options"
+	"github.com/ipfs/interface-go-ipfs-core/options"
 
-	"github.com/libp2p/go-libp2p-core/peer"
+	"github.com/libp2p/go-libp2p/core/peer"
 )
 
 // PubSubSubscription is an active PubSub subscription
+//
+// Deprecated: use github.com/ipfs/boxo/coreiface.PubSubSubscription
 type PubSubSubscription interface {
 	io.Closer
 
@@ -18,6 +20,8 @@ type PubSubSubscription interface {
 }
 
 // PubSubMessage is a single PubSub message
+//
+// Deprecated: use github.com/ipfs/boxo/coreiface.PubSubMessage
 type PubSubMessage interface {
 	// From returns id of a peer from which the message has arrived
 	From() peer.ID
@@ -33,6 +37,8 @@ type PubSubMessage interface {
 }
 
 // PubSubAPI specifies the interface to PubSub
+//
+// Deprecated: use github.com/ipfs/boxo/coreiface.PubSubAPI
 type PubSubAPI interface {
 	// Ls lists subscribed topics by name
 	Ls(context.Context) ([]string, error)

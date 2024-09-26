@@ -4,6 +4,7 @@ package iface
 
 import (
 	"context"
+
 	path "github.com/ipfs/interface-go-ipfs-core/path"
 
 	"github.com/ipfs/interface-go-ipfs-core/options"
@@ -12,6 +13,8 @@ import (
 )
 
 // CoreAPI defines an unified interface to IPFS for Go programs
+//
+// Deprecated: use github.com/ipfs/boxo/coreiface.CoreAPI
 type CoreAPI interface {
 	// Unixfs returns an implementation of Unixfs API
 	Unixfs() UnixfsAPI
@@ -31,7 +34,7 @@ type CoreAPI interface {
 	// Pin returns an implementation of Pin API
 	Pin() PinAPI
 
-	// ObjectAPI returns an implementation of Object API
+	// Object returns an implementation of Object API
 	Object() ObjectAPI
 
 	// Dht returns an implementation of Dht API
@@ -42,6 +45,9 @@ type CoreAPI interface {
 
 	// PubSub returns an implementation of PubSub API
 	PubSub() PubSubAPI
+
+	// Routing returns an implementation of Routing API
+	Routing() RoutingAPI
 
 	// ResolvePath resolves the path using Unixfs resolver
 	ResolvePath(context.Context, path.Path) (path.Resolved, error)

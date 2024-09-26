@@ -2,13 +2,15 @@ package iface
 
 import (
 	"context"
+
 	"github.com/ipfs/interface-go-ipfs-core/options"
 	path "github.com/ipfs/interface-go-ipfs-core/path"
 
 	"github.com/ipfs/go-cid"
-	"github.com/ipfs/go-ipfs-files"
+	"github.com/ipfs/go-libipfs/files"
 )
 
+// Deprecated: use github.com/ipfs/boxo/coreiface.AddEvent
 type AddEvent struct {
 	Name  string
 	Path  path.Resolved `json:",omitempty"`
@@ -17,17 +19,27 @@ type AddEvent struct {
 }
 
 // FileType is an enum of possible UnixFS file types.
+//
+// Deprecated: use github.com/ipfs/boxo/coreiface.FileType
 type FileType int32
 
 const (
 	// TUnknown means the file type isn't known (e.g., it hasn't been
 	// resolved).
+	//
+	// Deprecated: use github.com/ipfs/boxo/coreiface.TUnknown
 	TUnknown FileType = iota
 	// TFile is a regular file.
+	//
+	// Deprecated: use github.com/ipfs/boxo/coreiface.TFile
 	TFile
 	// TDirectory is a directory.
+	//
+	// Deprecated: use github.com/ipfs/boxo/coreiface.TDirectory
 	TDirectory
 	// TSymlink is a symlink.
+	//
+	// Deprecated: use github.com/ipfs/boxo/coreiface.TSymlink
 	TSymlink
 )
 
@@ -47,6 +59,8 @@ func (t FileType) String() string {
 }
 
 // DirEntry is a directory entry returned by `Ls`.
+//
+// Deprecated: use github.com/ipfs/boxo/coreiface.DirEntry
 type DirEntry struct {
 	Name string
 	Cid  cid.Cid
@@ -61,6 +75,8 @@ type DirEntry struct {
 
 // UnixfsAPI is the basic interface to immutable files in IPFS
 // NOTE: This API is heavily WIP, things are guaranteed to break frequently
+//
+// Deprecated: use github.com/ipfs/boxo/coreiface.UnixfsAPI
 type UnixfsAPI interface {
 	// Add imports the data from the reader into merkledag file
 	//
